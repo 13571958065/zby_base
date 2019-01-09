@@ -18,21 +18,64 @@
         <jdk.version>1.8</jdk.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <lombok.version>1.16.16</lombok.version>
+        <mybatis.version>1.3.1</mybatis.version>
+        <mysql.version>5.1.46</mysql.version>
+        <base.domain.version>1.0-SNAPSHOT</base.domain.version>
+        <base.commons.version>1.0-SNAPSHOT</base.commons.version>
+        <base.dao.version>1.0-SNAPSHOT</base.dao.version>
+        <base.service.version>1.0-SNAPSHOT</base.service.version>
     </properties>
 
     <modules>
-
+        <module>base-commons</module>
+        <module>base-dao</module>
+        <module>base-domain</module>
+        <module>base-service</module>
+        <module>base-web</module>
     </modules>
 
     <dependencyManagement>
         <dependencies>
+            <!--加入lombok-->
             <dependency>
-                <!--加入lombok-->
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok</artifactId>
                 <version>${lombok.version}</version>
             </dependency>
-
+            <!--mybatis start-->
+            <dependency>
+                <groupId>org.mybatis.spring.boot</groupId>
+                <artifactId>mybatis-spring-boot-starter</artifactId>
+                <version>${mybatis.version}</version>
+            </dependency>
+            <!--DataSource-->
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql.version}</version>
+            </dependency>
+            <!--project Dependence start-->
+            <dependency>
+                <groupId>com.zby.base</groupId>
+                <artifactId>base-domain</artifactId>
+                <version>${base.domain.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.zby.base</groupId>
+                <artifactId>base-service</artifactId>
+                <version>${base.service.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.zby.base</groupId>
+                <artifactId>base-dao</artifactId>
+                <version>${base.dao.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.zby.base</groupId>
+                <artifactId>base-commons</artifactId>
+                <version>${base.commons.version}</version>
+            </dependency>
+            <!--project Dependency End-->
 
         </dependencies>
     </dependencyManagement>
